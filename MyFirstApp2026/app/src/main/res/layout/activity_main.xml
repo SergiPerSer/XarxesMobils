@@ -172,4 +172,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.153" />
 
+    <SeekBar
+        android:id="@+id/velBar"
+        android:layout_width="262dp"
+        android:layout_height="29dp"
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="382dp" />
+
+    <TextView
+        android:id="@+id/velValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Velocidad: 0"
+        tools:layout_editor_absoluteX="167dp"
+        tools:layout_editor_absoluteY="419dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

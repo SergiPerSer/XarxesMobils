@@ -76,8 +76,11 @@ public class MainActivity extends AppCompatActivity {
         backButton = findViewById(R.id.backButton);
         leftButton = findViewById(R.id.leftButton);
         rightButton = findViewById(R.id.rightButton);
+        turnleftButton = findViewById(R.id.turnleftButton);
+        turnrightButton = findViewById(R.id.turnrightButton);
         stopButton = findViewById(R.id.stopButton);
         robotStatus = findViewById(R.id.robotStatus);
+
         discoveredDevices = findViewById(R.id.discoveredDevices);
 
         forButton.setOnClickListener(view -> moveForward());
