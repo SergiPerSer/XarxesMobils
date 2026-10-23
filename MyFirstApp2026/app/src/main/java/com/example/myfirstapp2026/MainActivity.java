@@ -22,6 +22,10 @@ import android.content.pm.PackageManager;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.content.ContextCompat;
+import android.os.Bundle;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -33,6 +37,7 @@ import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
     public static Boolean bluetoothActive = false;
+    public static int velocity;
     Button conButton;
     Button desButton;
     Button forButton;
@@ -42,8 +47,10 @@ public class MainActivity extends AppCompatActivity {
     Button rightButton;
     Button turnrightButton;
     TextView robotStatus;
+    TextView velValue;
     Button stopButton;
     LinearLayout discoveredDevices;
+    SeekBar velBar;
     private BluetoothSocket bluetoothSocket;
     private InputStream inputStream;
     private OutputStream outputStream;
@@ -80,6 +87,25 @@ public class MainActivity extends AppCompatActivity {
         turnrightButton = findViewById(R.id.turnrightButton);
         stopButton = findViewById(R.id.stopButton);
         robotStatus = findViewById(R.id.robotStatus);
+        velBar = findViewById(R.id.velBar);
+        velValue = findViewById(R.id.velValue);
+        updateVelocityLabel(velBar.getProgress());
+        velBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                updateVelocityLabel(progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // No hace falta ninguna acción al empezar a mover la barra.
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // La etiqueta ya refleja el valor actual de la barra.
+            }
+        });
 
         discoveredDevices = findViewById(R.id.discoveredDevices);
 
@@ -359,6 +385,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void updateVelocityLabel(int value) {
+        velValue.setText("Velocidad: " + value);
+    }
+
     private void moveForward() {
         sendRobotCommand(COMMAND_FORWARD, "Avanzando");
         setRobotVelocity(1);
@@ -485,6 +515,7 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onDestroy();
     }
+
 
     BroadcastReceiver discoveryResult = new BroadcastReceiver() {
         @Override
