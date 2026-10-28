@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 updateVelocityLabel(progress);
+                setRobotVelocity(progress);
             }
 
             @Override
