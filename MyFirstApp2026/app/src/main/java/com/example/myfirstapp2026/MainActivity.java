@@ -392,34 +392,26 @@ public class MainActivity extends AppCompatActivity {
 
     private void moveForward() {
         sendRobotCommand(COMMAND_FORWARD, "Avanzando");
-        setRobotVelocity(1);
     }
 
     private void moveBackward() {
         sendRobotCommand(COMMAND_BACKWARD, "Retrocediendo");
-        setRobotVelocity(1);
     }
 
     private void turnLeft() {
         sendRobotCommand(COMMAND_TURN_LEFT, "Girando a la izquierda");
-        setRobotVelocity(1);
     }
 
     private void turnRight() {
         sendRobotCommand(COMMAND_TURN_RIGHT, "Girando a la derecha");
-        setRobotVelocity(1);
     }
 
     private void moveLaterallyLeft() {
         sendRobotCommand(COMMAND_LATERAL_LEFT, "Desplazándose lateralmente a la izquierda");
-        setRobotVelocity(1);
-
     }
 
     private void moveLaterallyRight() {
         sendRobotCommand(COMMAND_LATERAL_RIGHT, "Desplazándose lateralmente a la derecha");
-        setRobotVelocity(1);
-
     }
 
     private void setRobotVelocity(int velocity) {
