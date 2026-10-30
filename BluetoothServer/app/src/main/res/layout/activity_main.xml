@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/bt_details"
+        android:layout_width="382dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="15dp"
+        android:text="BT Name:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/status_connect"
+        android:layout_width="382dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="15dp"
+        android:text="NOT CONNECTED"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_details" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="382dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="15dp"
+        android:text="Received:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_details" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="88dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="56dp"
+        android:text="To be sent..."
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        tools:layout_editor_absoluteX="14dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="208dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginBottom="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="382dp"
+        android:layout_height="362dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/ack_connect"
+        android:layout_width="173dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#3F9E2A"
+        android:text="ACCEPT CONNECTION"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_details" />
+
+    <Button
+        android:id="@+id/can_connect"
+        android:layout_width="173dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#C70E0E"
+        android:text="CLOSE CONNECTION"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_details" />
+
+    <Button
+        android:id="@+id/send_data"
+        android:layout_width="127dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="17dp"
+        android:backgroundTint="#2E77D3"
+        android:text="SEND"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
