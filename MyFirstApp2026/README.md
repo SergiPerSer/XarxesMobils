@@ -649,22 +649,7 @@ recomienda este orden:
 -   ¿Qué podría ocurrir si se pierde Bluetooth mientras el robot se está
     moviendo?
 
-## 15. Archivos externos necesarios para comprender el proyecto completo
-
-El archivo analizado no basta para verificar toda la aplicación. Para
-completar la documentación, también conviene revisar:
-
--   `res/layout/activity_main.xml`: estructura de la pantalla y
-    configuración del botón de conexión.
--   `AndroidManifest.xml`: permisos Bluetooth, ubicación, versión
-    objetivo y configuración de la aplicación.
--   `build.gradle` o `build.gradle.kts`: SDK y dependencias AndroidX.
--   Código del dispositivo receptor: servicio Bluetooth SPP, protocolo
-    de comandos y lógica de movimiento.
--   Si existe, documentación del protocolo que define los valores de
-    velocidad y el significado de cada carácter.
-
-## 16. Resumen final
+## 15. Resumen final
 
 `MainActivity` actúa como interfaz y cliente Bluetooth del sistema de
 control. Inicializa la pantalla, solicita permisos, busca dispositivos,
