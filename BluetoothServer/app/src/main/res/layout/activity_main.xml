@@ -20,6 +20,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/bt_mac"
+        android:layout_width="382dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="15dp"
+        android:text="BT MAC:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/status_connect"
         android:layout_width="382dp"
         android:layout_height="23dp"
@@ -32,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bt_details" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/receivedLabel"
         android:layout_width="382dp"
         android:layout_height="23dp"
         android:layout_marginStart="14dp"
@@ -44,26 +57,28 @@
         app:layout_constraintTop_toBottomOf="@+id/bt_details" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/outgoingMessageLabel"
         android:layout_width="88dp"
         android:layout_height="22dp"
         android:layout_marginTop="56dp"
         android:text="To be sent..."
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintTop_toBottomOf="@+id/receivedMessagesScrollView"
         tools:layout_editor_absoluteX="14dp" />
 
-    <TextView
-        android:id="@+id/textView6"
+    <EditText
+        android:id="@+id/outgoingMessageContent"
         android:layout_width="208dp"
         android:layout_height="82dp"
         android:layout_marginStart="14dp"
         android:layout_marginBottom="17dp"
+        android:hint="Escribe un mensaje"
+        android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/outgoingMessageLabel" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/receivedMessagesScrollView"
         android:layout_width="382dp"
         android:layout_height="362dp"
         android:layout_marginStart="14dp"
@@ -71,7 +86,7 @@
         android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView4">
+        app:layout_constraintTop_toTopOf="@+id/receivedLabel">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,8 +98,8 @@
         android:id="@+id/ack_connect"
         android:layout_width="173dp"
         android:layout_height="54dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="#3F9E2A"
         android:text="ACCEPT CONNECTION"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,7 +109,7 @@
         android:id="@+id/can_connect"
         android:layout_width="173dp"
         android:layout_height="54dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#C70E0E"
         android:text="CLOSE CONNECTION"
@@ -112,6 +127,6 @@
         android:text="SEND"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+        app:layout_constraintTop_toBottomOf="@+id/receivedMessagesScrollView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
