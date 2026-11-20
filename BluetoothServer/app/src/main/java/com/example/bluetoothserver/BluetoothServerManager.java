@@ -25,6 +25,7 @@ public class BluetoothServerManager extends Thread {
     private BluetoothServerSocket bluetoothServerSocket;
     private BluetoothSocket connectedSocket;
     private InputStream inputStream;
+
     private OutputStream outputStream;
 
     public BluetoothServerManager(BluetoothAdapter bluetoothAdapter,

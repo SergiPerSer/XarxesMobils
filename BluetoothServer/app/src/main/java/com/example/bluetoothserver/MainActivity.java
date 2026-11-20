@@ -209,8 +209,8 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         closeConnectionButton.setEnabled(true);
-        sendButton.setEnabled(false);
-        sentContent.setEnabled(false);
+        sendButton.setEnabled(true);
+        sentContent.setEnabled(true);
         statusConnect.setText("Starting Bluetooth server...");
         bluetoothServerManager = new BluetoothServerManager(bluetoothAdapter, bluetoothHandler);
         bluetoothServerManager.start();
