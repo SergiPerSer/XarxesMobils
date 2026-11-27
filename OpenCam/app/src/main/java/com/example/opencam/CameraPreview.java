@@ -55,29 +55,40 @@ public class CameraPreview extends SurfaceView implements
     }
 
     private Camera.Size getBestPreviewSize(int width, int height, java.util.List<Camera.Size> sizes) {
-        if (sizes == null || sizes.isEmpty()) {
+        if (sizes == null || sizes.isEmpty() || width <= 0 || height <= 0) {
             return null;
         }
 
-        // La cámara muestra la imagen girada 90 grados; compara las dimensiones en esa orientación.
+        // La cámara se gira 90 grados, así que se compara con el aspecto girado del área de vista previa.
         double targetRatio = (double) height / width;
-        Camera.Size bestSize = sizes.get(0);
-        double bestRatioDifference = Double.MAX_VALUE;
-        long bestAreaDifference = Long.MAX_VALUE;
+        long targetArea = (long) width * height;
+        Camera.Size bestMatchingSize = null;
+        long smallestAreaAboveTarget = Long.MAX_VALUE;
+        Camera.Size bestFallbackSize = sizes.get(0);
+        double smallestRatioDifference = Double.MAX_VALUE;
+        long fallbackAreaDifference = Long.MAX_VALUE;
 
         for (Camera.Size size : sizes) {
             double ratio = (double) size.width / size.height;
             double ratioDifference = Math.abs(ratio - targetRatio);
-            long areaDifference = Math.abs((long) size.width * size.height - (long) width * height);
-            if (ratioDifference < bestRatioDifference
-                    || (Math.abs(ratioDifference - bestRatioDifference) < 0.01
-                    && areaDifference < bestAreaDifference)) {
-                bestSize = size;
-                bestRatioDifference = ratioDifference;
-                bestAreaDifference = areaDifference;
+            long area = (long) size.width * size.height;
+            long areaDifference = Math.abs(area - targetArea);
+
+            // Entre tamaños con proporción casi idéntica, elige el menor que cubra el área visible.
+            if (ratioDifference <= 0.03 && area >= targetArea && area < smallestAreaAboveTarget) {
+                bestMatchingSize = size;
+                smallestAreaAboveTarget = area;
+            }
+
+            if (ratioDifference < smallestRatioDifference
+                    || (Math.abs(ratioDifference - smallestRatioDifference) < 0.01
+                    && areaDifference < fallbackAreaDifference)) {
+                bestFallbackSize = size;
+                smallestRatioDifference = ratioDifference;
+                fallbackAreaDifference = areaDifference;
             }
         }
-        return bestSize;
+        return bestMatchingSize != null ? bestMatchingSize : bestFallbackSize;
     }
 
     @Override

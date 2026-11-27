@@ -5,29 +5,30 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".MainActivity">
 
-    <TableRow
-        android:id="@+id/tableRow1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dip"
-        android:gravity="center_horizontal">
+    <FrameLayout
+        android:id="@+id/cameraView"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <FrameLayout
-            android:id="@+id/cameraView"
-            android:layout_width="350dp"
-            android:layout_height="250dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="443dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="81dp"
-            android:layout_span="3"
-            android:gravity="center_horizontal"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </TableRow>
+    <ImageView
+        android:id="@+id/lupa_de_la_verdad"
+        android:layout_width="767dp"
+        android:layout_height="1153dp"
+        android:alpha="0.30"
+        android:contentDescription="Lupa de la verdad"
+        android:rotation="45"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@id/cameraView"
+        app:layout_constraintEnd_toEndOf="@id/cameraView"
+        app:layout_constraintStart_toStartOf="@id/cameraView"
+        app:layout_constraintTop_toTopOf="@id/cameraView"
+        app:srcCompat="@drawable/oot3d_lens_of_truth_model" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
